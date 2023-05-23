@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+.field_with_errors {
+  border-style: dotted;
+  border-width: 1px;
+  // border-color: blue;
+}
+
+.error_messages {
+  color: red;
+  font-weight: bold;
+}
+
+.thick {
+  font-weight: bold;
+}
+a {
+  text-decoration: none;
+  color: black;
+}

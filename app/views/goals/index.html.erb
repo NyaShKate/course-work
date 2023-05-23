@@ -1,0 +1,31 @@
+<div class="container text-center">
+
+  <h1>My Goals</h1>
+
+
+  <ol class="list-group text-center">
+    <% @goals.each do |goal| %>
+      <li class="list-group-item">
+        <p class="thick"><%= goal.description %></p>
+        <ul class="list-group text-center">
+          <li class="list-group-item">
+            Start Date: <%= readable_date(goal)%>
+          </li>
+          <li class="list-group-item">
+            <%= link_to "View This Goal", habit_goal_path(goal.habit, goal), :class => "text-secondary"  %>
+          </li>
+          <li class="list-group-item">
+            <%= link_to "Edit This Goal", edit_habit_goal_path(goal.habit, goal), :class => "text-secondary"  %>
+          </li>
+          <li class="list-group-item">
+            <%= form_tag goal_path(goal), method: "delete" do %>
+              <%= submit_tag "Delete Goal", :class => "btn btn-danger" %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+</div>
+
+

@@ -1,0 +1,9 @@
+<%= render :partial => 'application/error_messages', :locals => {:model => @goal} %>
+
+<div class="container text-center">
+  <h1>Create a Goal</h1>
+</div>
+
+<%= render "form", goal: @goal do |f| %>
+  <%= f.submit "Create Goal", :class => "btn btn-primary" %>
+<% end %>

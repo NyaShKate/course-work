@@ -1,0 +1,15 @@
+<div class="container text-center">
+
+
+  <h1>Habit Categories</h1>
+
+  <ul class="list-group">
+    <% @categories.each do |category| %>
+      <li class="list-group-item">
+        <%= link_to category.name, category_habits_path(category) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Create New Category", new_category_path, :class=>"text-secondary" %>
+</div>

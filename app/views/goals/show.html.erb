@@ -1,0 +1,31 @@
+<div class="container text-center error_messages">
+  <%= flash[:message] %>
+</div>
+
+<div class="container text-center">
+  <h1><%= @goal.description %></h1>
+
+
+
+  <p>You have completed <%= @goal.days_completed %> days of this habit</p>
+
+  <p>You have <%= days_left_to_form_habit(@goal) %> days left to solidify your habit</p>
+
+  <p>You have completed your habit <%= completion_percentage(@goal) %>% of the time since you started</p>
+
+  <% if !@goal.start_date_in_future? %>
+    <h3>Did you complete your habit today?</h3>
+    <%= form_tag completed_habit_path(@goal) do %>
+      <%= submit_tag "Habit Completed Today", :class => "btn btn-outline-info"%>
+    <% end %>
+  <% else %>
+    <h3>Your goal starts in <%= days_until_start(@goal) %> day(s)!</h3>
+  <% end %>
+</div>
+
+<div class="container text-center">
+  <% if @goal.goal_finished? %>
+    <h3>Congratulations On Completing Your Goal!</h3>
+    <iframe src="https://giphy.com/embed/ely3apij36BJhoZ234" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/good-job-congratulations-otter-ely3apij36BJhoZ234">via GIPHY</a></p>
+  <% end %>
+</div>
